@@ -392,7 +392,7 @@
                 int incorrectGuessCount = 0;
                 List<char> playerUsedLetters = new List<char>();
                 DrawCurrentGameState(false, incorrectGuessCount, wordToGuess, playerUsedLetters);
-                Console.ReadLine();
+                
 
                 PlayGame(word, wordToGuess, incorrectGuessCount, playerUsedLetters);
 
@@ -456,17 +456,6 @@
                 {
                     incorrectGuessCount++;
                 }
-
-                bool playerLoses = CheckIfPlayerLoses(incorrectGuessCount);
-                if (playerLetterIsContained)
-                {
-                    wordToGuess = AddLetterToGuessWord(word, playerLetter, wordToGuess);
-                }
-                else
-                {
-                    incorrectGuessCount++;
-                }
-
                 DrawCurrentGameState(false, incorrectGuessCount, wordToGuess, playerUsedLetters);
                 bool playerWins = CheckIfPlayerwWins(wordToGuess);
                 if (playerWins)
@@ -477,7 +466,7 @@
                     break;
                 }
 
-                playerLoses = CheckIfPlayerLoses(incorrectGuessCount);
+                bool playerLoses = CheckIfPlayerLoses(incorrectGuessCount);
                 if (playerLoses)
                 {
                     Console.SetCursorPosition(0, 0);
@@ -511,7 +500,7 @@
         static string AddLetterToGuessWord(string word, char playerLetter, string wordToGuess)
         {
             char[] wordToGuessCharArr = wordToGuess.ToCharArray();
-            for (int i = 0; 1 < wordToGuess.Length; i++)
+            for (int i = 0; i < wordToGuess.Length; i++)
             {
                 if (playerLetter == word[i])
                 {
