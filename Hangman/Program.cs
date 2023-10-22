@@ -378,7 +378,7 @@
                 @" __/══════╩═══"
             };
         
-        const char Underscore = ' ';
+        const char Underscore = '_';
         static void Main(string[] args)
         {
 
@@ -457,7 +457,7 @@
                     incorrectGuessCount++;
                 }
                 DrawCurrentGameState(false, incorrectGuessCount, wordToGuess, playerUsedLetters);
-                bool playerWins = CheckIfPlayerwWins(wordToGuess);
+                bool playerWins = CheckIfPlayerWins(wordToGuess);
                 if (playerWins)
                 {
                     Console.Clear();
@@ -509,8 +509,9 @@
             }
             return new String(wordToGuessCharArr);
         }
-        static bool CheckIfPlayerwWins(string wordToGuess)
+        static bool CheckIfPlayerWins(string wordToGuess)
         {
+
             if (wordToGuess.Contains(Underscore))
             {
                 return false;
